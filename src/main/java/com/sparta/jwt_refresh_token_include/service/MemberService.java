@@ -16,7 +16,7 @@ public class MemberService {
 
     @Transactional(readOnly = true)
     public MemberResponseDto getMemberInfo(String name) {
-        return memberRepository.findByName(name)
+        return memberRepository.findByNickname(name)
                 .map(MemberResponseDto::of)
                 .orElseThrow(() -> new RuntimeException("유저 정보가 없습니다."));
     }

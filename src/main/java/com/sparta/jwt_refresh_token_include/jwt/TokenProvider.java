@@ -54,6 +54,7 @@ public class TokenProvider {
                 .compact();
 
         // Refresh Token 생성
+        // ??? 리프레시토큰 사용자 정보 없어도 되나??? 일단 해보고 생각해보기.
         String refreshToken = Jwts.builder()
                 .setExpiration(new Date(now + REFRESH_TOKEN_EXPIRE_TIME))
                 .signWith(key, SignatureAlgorithm.HS512)
