@@ -114,15 +114,15 @@ public class CommentService {
     @Transactional
     public ResponseEntity<?> readComment(Long id) {
 
-        Optional<Comment>comments = commentRepository.findAllByBoard_Id(id);
+        List<Comment>comments = commentRepository.findAllByBoard_Id(id);
         //Optional<Comment> optionalComment = commentRepository.findById(id);
 
 
-        CommentResponseDto1 commentResponseDto1 = new CommentResponseDto1(comments);
+        //CommentResponseDto1 commentResponseDto1 = new CommentResponseDto1(comments);
 
 
         return ResponseEntity.ok()
-                .body(ResponseDto.success(commentResponseDto1));
+                .body(ResponseDto.success(comments));
     }
 
     @Transactional
